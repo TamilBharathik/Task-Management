@@ -1,0 +1,76 @@
+<!-- <div class="outer">
+    <div class="login">
+    <form #form="ngForm" (ngSubmit)="onSubmit()" >
+        <div class="form"><br/><br/><br/><br/>
+            <h1 >Enter your 
+                Credentials
+            </h1>
+            <br/>
+                <div style="margin-bottom: 10px; display: flex; align-items: center;color:white">
+                <label>Username</label><br>
+                <input type="text" class="form-control" id="Username" name="Username" [(ngModel)]="Username" required/>
+                </div><br>
+                <div  style="margin-bottom: 10px; display: flex; align-items: center;color:white;">
+                <label>Password</label>
+                <input type="text" class="form-control" id="Password" name="Password" [(ngModel)]="Password" required=""/>
+                </div><br>
+                <div  style="margin-bottom: 10px; display: flex; align-items: center;">
+                    <p-button label="Login" severity="primary" type="ngSubmit" ></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<!-- 
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Login Here</h3>
+
+        <label for="Username">Username</label>
+        <input type="text" placeholder="Enter your username" name ="Username" [(ngModel)]="Username" id="Username">
+
+        <label for="Password">Password</label>
+        <input type="Password" placeholder="Password" name ="Password" [(ngModel)]="Password" id="Password">
+    <br/>
+    <button (click)="login()" style="color:black">Login</button>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div> 
+    </form>
+</body> -->
+
+<div class="body">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Login Here</h3>
+
+        <label for="Username">Username</label>
+        <input type="text" placeholder="Enter your username" name="Username" id="Username" [(ngModel)]="Username" >
+
+        <label for="Password">Password</label>
+        <input type="password" placeholder="Password" name="Password" [(ngModel)]="Password" id="Password">
+        <br/>
+        <button (click)="login()" style="color: black;">Login</button><br/><br/>
+        <div *ngIf="errorMessage" class="error-message" style="color: yellow;">
+            {{ errorMessage }}
+          </div>
+          
+        <!-- Use type="button" to prevent form submission -->
+        <!-- <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div> -->
+    </form>
+
+</div>
+    
+
