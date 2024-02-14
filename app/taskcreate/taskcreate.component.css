@@ -1,0 +1,43 @@
+
+
+.create{
+    margin-bottom: 10px;
+     display: flex; 
+     align-items: center;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.body{
+    width: 600px;
+    height: 600px;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 1px #999;
+    margin: auto;
+    background: url('https://www.solidbackgrounds.com/images/1280x800/1280x800-pastel-brown-solid-color-background.jpg'); 
+    flex-direction:column;
+    align-items: center;
+    display: flex;
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+.FORM{
+       align-items: flex-end; 
+}
+.demo {
+    height: 20px;
+    width:150px;
+}
+
+.login{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.font{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+     
+}

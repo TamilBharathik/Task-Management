@@ -1,0 +1,97 @@
+<div class="img">
+
+<p style="font-size:x-large; display:flex; justify-content: center;">Welcome! It's a Good Sign to finish your assigned Work!</p>
+
+
+<div class="center-container">
+    <div class="search-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" style="margin-right: 10px; height:fit-content;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" [(ngModel)]="searchQuery" (input)="performSearch()" placeholder="Search by title" class="search-input"/>
+    </div>
+  </div>
+  <ng-container *ngIf="searchQuery">
+    <div class="task-container">
+      <div *ngFor="let task of filteredTasks" class="task-details">
+        <h3>{{ task.title }}</h3>
+        <p>Description: {{ task.description ? task.description : 'No Description' }}</p>
+        <p>Due Date: {{ task.dueDate | date:'yyyy-MM-dd' }}</p>
+        <p>Priority: {{ task.priority ? task.priority : 'Not Mentioned' }}</p>
+        <p>Comment: {{ task.comments ? task.comments : 'No Comments' }}</p>
+        <p>Status: {{ task.status ? task.status : 'Not Mentioned' }}</p>
+        <div *ngIf="task.attachment">
+          <a href="{{ task.attachment }}" target="_blank">View Attachment</a>
+        </div>
+        <div *ngIf="!task.attachment">
+          <p>No Attachment Inserted</p>
+        </div>
+        <button pButton label="Edit" [routerLink]="['/edit', task.taskId]" class="edit-button" style="margin-right: 10px; "></button>
+        <button pButton label="Delete" class="delete-button" (click)="deleteTasks(task.taskId)"></button>
+      </div>
+    </div>
+  </ng-container>
+
+  
+<!-- <div>
+    <input type="text" placeholder="Search" [(ngModel)]="searchQuery" (input)="performSearch()">
+  </div>
+
+  <p-table [value]="filteredTasks" [tableStyle]="{ 'min-width': '50rem' }"> -->
+
+    <!-- <div class="Card">
+        <div class="CardInner">
+        
+        <div class="container">
+          <div class="Icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="InputContainer">
+            <input placeholder="Search"/>
+          </div>
+        </div>
+       </div>
+      </div> -->
+</div>
+<p-button label="Assign a New Task" [raised]="true" severity="danger" [routerLink]="'/create'"></p-button>
+<br><br><br>
+<p-table [value]="tasks" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>DueDate</th>
+            <th>Priority</th>
+            <th>Comment</th>
+            <th>Status</th>
+            <th>Attachment</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-t>
+        <tr>
+            <td>{{ t.title }}</td>
+            <td>{{ t.description ? t.description : 'No Description' }}</td>
+            <td>{{ t.dueDate|date:'yyyy-MM-dd' }}</td>
+            <td>{{ t.priority?  t.priority:'Not Mentioned'}}</td>
+            <td>{{ t.comments ? t.comments : 'No Comments'}}</td>
+            <td>{{ t.status ? t.status : 'Not Mentioned'}}</td>
+            <br><br>
+
+        
+            <div *ngIf="t.attachment; else noAttachmentError">
+                <a href="{{ t.attachment }}" target="_blank">View Attachment</a>
+              </div>
+              <ng-template #noAttachmentError>
+                <p>No Attachment Inserted</p>
+                
+              </ng-template><br>
+           <td>
+              <p-button label="Edit" [routerLink]="['/edit',t.taskId]" [style.margin-right.px]="10" ></p-button>
+              <p-button label="Delete" severity="secondary" (click)="deleteTasks(t.taskId)"></p-button>
+            </td>
+
+
+
+  
+    </ng-template>
+</p-table>
+
+
