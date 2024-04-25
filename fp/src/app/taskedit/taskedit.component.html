@@ -1,0 +1,94 @@
+
+<div class="body">
+   <form #form="ngForm" (ngSubmit)="updateTask()">
+    <div style="display: flex; flex-direction: column; align-items: center; font-size:large"><br><br>
+      <h1 style="color:white;">Update the Task</h1>
+
+    <div style="margin-bottom: 10px; display: flex; align-items: center;">
+        <label style="width: 100px; margin-right: 10px; text-align: right;color:white;">Id</label>
+        <input type="text" class="form-control" id="taskId" readonly name="taskId" [(ngModel)]="editDetails.taskId"/>
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+          <!-- <div style="margin-bottom: 10px; display: flex; align-items: center;">
+            <label for="id" style="width: 100px; margin-right: 10px; text-align: right;">Id</label>
+            <input type="text" class="form-control" id="id" readonly name="id" [(ngModel)]="addTaskRequest.id"/>
+          </div>  -->
+          <div style="display: flex; align-items: center;">
+            <label for="title" style="width: 100px; margin-right: 10px; text-align: right;color:white;">Title</label>
+            <!-- <input type="text" class="form-control" id="title" name="title" [(ngModel)]="addTaskRequest.title"/> -->
+        
+            <input type="text" id="title" name="title" [(ngModel)]="editDetails.title" required #title="ngModel">
+          </div></div>
+            <div *ngIf="title.invalid && (title.dirty || title.touched)">
+              
+                <small class="text-danger" *ngIf="title.errors && title.errors['required']" style="font-size: small; font-weight:bold; color:rgb(255, 232, 29); margin-top :-5px;" >Title is required*</small>
+              
+            </div>
+          </div>
+
+    <div style="margin-bottom: 10px; display: flex; align-items: center;">
+        <label style="width: 100px; margin-right: 10px; text-align: right;color:white;">Description</label>
+        <input type="string" class="form-control" id="description" name="description" [(ngModel)]="editDetails.description"/>
+        </div>
+
+        <div style="margin-bottom: 10px; display: flex; align-items: center;">
+          <label style="width: 100px; margin-right: 10px; text-align: right;color:white;">DueDate</label>
+          <input type="text" class="form-control" id="dueDate" name="dueDate" [(ngModel)]="editDetails.dueDate"/>
+          </div>
+
+          <div style="margin-bottom: 10px; display: flex; align-items: center; margin-left:49px;color:white;" class="test">
+            <!-- <label for="priority" style="width: 100px; margin-right: 10px; text-align: right;">Priority</label> -->
+            
+              <span class="material-symbols-outlined">Priority</span>
+              <select class="demo" name="priority" id="priority" class="form-control demo" [(ngModel)]="editDetails.priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+               
+                <!-- Add more options as needed -->
+              </select>
+              <span class="material-symbols-outlined">
+            
+                </span>
+           </div>
+            
+            <div  style="margin-bottom: 10px; display: flex; align-items: center;">
+                <label style="width: 100px; margin-right: 10px; text-align: right;color:white;">Comments</label>
+                <input type="text" class="form-control" id="comments" name="comments" [(ngModel)]="editDetails.comments"/>
+                </div>
+
+                <div style="margin-bottom: 10px; display: flex; align-items: center; margin-left:49px;" class="test">
+                  <!-- <label for="priority" style="width: 100px; margin-right: 10px; text-align: right;">Priority</label> -->
+                  <div>
+                    <span class="material-symbols-outlined" style="color:white;">Status</span>
+                    <select class="demo" name="status" id="status" class="form-control demo" [(ngModel)]="editDetails.status">
+                      <option value="Yet to Start">Created</option>
+                      <option value="On Progress">On Progress</option>
+                      <option value="Work Completed">Work Done</option>
+                     
+                      <!-- Add more options as needed -->
+                    </select>
+                    <span class="material-symbols-outlined">
+                  
+                      </span>
+                  </div>
+                  </div>
+
+                  <div>
+                    <label style="width: 100px; margin-right: 10px; text-align: right;color:white;">Attachment</label>
+                    <input type="text" class="form-control" id="attachment" name="attachment" [(ngModel)]="editDetails.attachment"/>
+                    </div><br>
+
+                <div>
+                    <p-button [disabled]="!title.valid " label="Save Changes" severity="primary" type="ngSubmit"></p-button>
+                </div>
+<br><br>
+                <!-- <div>
+                    <p-button label="Delete" severity="secondary" (click)="deleteTasks(t.taskId)" ></p-button>
+                </div> -->
+              
+              
+   </form>
+</div>
+
