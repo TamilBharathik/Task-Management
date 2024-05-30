@@ -1,0 +1,6 @@
+@scrapbackend_HostAddress = http://localhost:5239
+
+GET {{scrapbackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
